@@ -55,7 +55,7 @@ if [ -z "$POSTGRES_PASSWORD" ]; then
     if grep -q "^POSTGRES_PASSWORD=" .env; then
         sed "${SED_INPLACE[@]}" "s/^POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=${POSTGRES_PASSWORD}/" .env
     else
-        echo "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >>.env
+        echo "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >> .env
     fi
     echo -e "${GREEN}Generated PostgreSQL password: ${POSTGRES_PASSWORD}${NC}"
 fi
