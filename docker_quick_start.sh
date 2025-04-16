@@ -71,7 +71,7 @@ if [ -z "$JWT_SECRET" ]; then
 fi
 
 # Step 3: Remove conflicting containers if they exist
-CONTAINERS=("postgres-db" "valtest-backend-app")
+CONTAINERS=("postgres-db" "valltest-backend-app")
 for CONTAINER in "${CONTAINERS[@]}"; do
     if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
         echo -e "${YELLOW}Removing existing container '${CONTAINER}'...${NC}"
