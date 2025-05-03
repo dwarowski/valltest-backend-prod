@@ -80,7 +80,7 @@ for CONTAINER in "${CONTAINERS[@]}"; do
         echo -e "${GREEN}No conflicting container '${CONTAINER}' found.${NC}"
     fi
 done
-docker rmi -f ${CONTAINERS[1]}:${VALLTEST_VERSION} || check_success "Failed to remove conflicting image '${CONTAINERS[1]}:${VALLTEST_VERSION}'"
+docker rmi -f dwaru/${CONTAINERS[1]}:${VALLTEST_VERSION} || check_success "Failed to remove conflicting image '${CONTAINERS[1]}:${VALLTEST_VERSION}'"
 docker volume rm valltest_db_data 
 
 # -------------------------------------------------------
