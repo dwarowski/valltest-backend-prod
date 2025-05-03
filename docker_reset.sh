@@ -80,8 +80,14 @@ for CONTAINER in "${CONTAINERS[@]}"; do
         echo -e "${GREEN}No conflicting container '${CONTAINER}' found.${NC}"
     fi
 done
-docker rmi -f dwaru/${CONTAINERS[1]}:${VALLTEST_VERSION} || check_success "Failed to remove conflicting image '${CONTAINERS[1]}:${VALLTEST_VERSION}'"
-docker volume rm valltest_db_data 
+
+IMAGE="dwaru/${CONTAINERS[1]}:${VALLTEST_VERSION}"
+echo -e "${YELLOW}Removing existing image '${IMAGE}'...${NC}"
+docker rmi -f  ${IMAGE} || check_success "Failed to remove conflicting image '${IMAGE}'"
+
+VOLUME="valltest_db_data"
+echo -e "${YELLOW}Removing existing image '${VOLUME}'...${NC}"
+docker volume rm ${VOLUME}
 
 # -------------------------------------------------------
 # Launch docker compose
